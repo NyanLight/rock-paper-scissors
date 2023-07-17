@@ -1,15 +1,15 @@
-const items = ["rock", "paper", "scissors"];
-function getComputerChoice() {
-    return items[Math.floor(Math.random()*items.length)];
+const items = ["rock", "paper", "scissors"]; // an array contains list of available turns in rock-paper-scissors game
+function getComputerChoice() { // a function get a random item from the array above and return a value
+    return items[Math.floor(Math.random()*items.length)]; 
 };
 
-function getPlayerChoice() {
+function getPlayerChoice() { // create a function to get player's input and make it case insensetive using toLowerCase method
     return prompt('Choose your fighter!').toLowerCase(); 
 }
-let playerScore; 
-let computerScore;
+let playerScore;  //  create a variable to store player's score
+let computerScore; // create a variable to store player's score
 
-function oneRound (playerChoice = getPlayerChoice(), computerChoice = getComputerChoice()) {
+function oneRound (playerChoice = getPlayerChoice(), computerChoice = getComputerChoice()) { //function to play one round of RPS game using conditional statement to check who wins
     if (computerChoice === playerChoice) {
         console.log("It's tie round");
     } else if (computerChoice === "paper" && playerChoice === "rock") {
@@ -33,7 +33,7 @@ function oneRound (playerChoice = getPlayerChoice(), computerChoice = getCompute
     }
 };
 
-function oneGame () {
+function oneGame () { // the function invoke oneRound function 5 times displaying total score after each round and show final result in the end of a session
     playerScore = 0; 
     computerScore = 0; 
     for (let i = 0; i < 5; i++) {
