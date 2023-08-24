@@ -33,16 +33,5 @@ function oneRound (playerChoice = getPlayerChoice(), computerChoice = getCompute
     }
 };
 
-function oneGame () { // the function invoke oneRound function 5 times displaying total score after each round and show final result in the end of a session
-    playerScore = 0; 
-    computerScore = 0; 
-    for (let i = 0; i < 5; i++) {
-        oneRound(playerChoice = getPlayerChoice(), computerChoice = getComputerChoice());
-        console.log(`Score: ${playerScore}:${computerScore}`);
-    }
-    if (playerScore > computerScore) {
-        console.log('You won! Congratulations!');
-    } else {
-        console.log('You lose!');
-    }}
+
     
