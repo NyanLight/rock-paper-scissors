@@ -33,5 +33,19 @@ function oneRound (playerChoice = getPlayerChoice(), computerChoice = getCompute
     }
 };
 
+const rock = document.querySelector('#rockButton');
+const paper = document.querySelector('#paperButton');
+const scissors = document.querySelector('#scissors');
+
+
+rock.addEventListener('click', () => {
+    oneRound("rock");
+});
+paper.addEventListener('click', () =>  {
+    oneRound("paper")
+});
+scissors.addEventListener('click', () => {
+    oneRound("scissors")
+}); 
 
     
