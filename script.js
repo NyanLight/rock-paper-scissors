@@ -11,24 +11,24 @@ let computerScore; // create a variable to store player's score
 
 function oneRound (playerChoice = getPlayerChoice(), computerChoice = getComputerChoice()) { //function to play one round of RPS game using conditional statement to check who wins
     if (computerChoice === playerChoice) {
-        console.log("It's tie round");
+        display.textContent = ("It's tie round");
     } else if (computerChoice === "paper" && playerChoice === "rock") {
-        console.log("Paper beats a rock, you lose the round!");
+        display.textContent = ("Paper beats a rock, you lose the round!");
         ++computerScore;
     } else if (computerChoice === "rock" && playerChoice === "paper") {
-        console.log("Paper beats a rock, you win the round!");
+        display.textContent = ("Paper beats a rock, you win the round!");
         ++playerScore;
     } else if (computerChoice === 'paper' && playerChoice === 'scissors') {
-        console.log('Scissors beat a paper, you win!');
+        display.textContent = ('Scissors beat a paper, you win!');
         ++playerScore;
     } else if (computerChoice === 'rock' && playerChoice === 'scissors') {
-        console.log('Rock beats scissors, you lose!');
+        display.textContent = ('Rock beats scissors, you lose!');
         ++computerScore;
     } else if (computerChoice === 'scissors' && playerChoice === 'paper') {
-        console.log('Scissors beat the paper, you lose');
+        display.textContent = ('Scissors beat the paper, you lose');
         ++computerScore;
     } else if (computerChoice === 'scissors' && playerChoice === 'rock') {
-        console.log('Rock beats scissors, you win!');
+        display.textContent = ('Rock beats scissors, you win!');
         ++playerScore;  
     }
 };
@@ -36,6 +36,7 @@ function oneRound (playerChoice = getPlayerChoice(), computerChoice = getCompute
 const rock = document.querySelector('#rockButton');
 const paper = document.querySelector('#paperButton');
 const scissors = document.querySelector('#scissors');
+const display = document.querySelector('#display');
 
 
 rock.addEventListener('click', () => {
