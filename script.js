@@ -1,21 +1,11 @@
-const items = ["rock", "paper", "scissors"]; // an array contains list of available turns in rock-paper-scissors game
+const items = ["rock", "paper", "scissors"];
 function getComputerChoice() {
-  // a function get a random item from the array above and return a value
   return items[Math.floor(Math.random() * items.length)];
 }
+let playerScore = 0;
+let computerScore = 0;
 
-function getPlayerChoice() {
-  // create a function to get player's input and make it case insensetive using toLowerCase method
-  return prompt("Choose your fighter!").toLowerCase();
-}
-let playerScore = 0; //  create a variable to store player's score
-let computerScore = 0; // create a variable to store player's score
-
-function oneRound(
-  playerChoice = getPlayerChoice(),
-  computerChoice = getComputerChoice()
-) {
-  //function to play one round of RPS game using conditional statement to check who wins
+function oneRound(playerChoice, computerChoice = getComputerChoice()) {
   if (computerChoice === playerChoice) {
     display.textContent = "It's tie round";
     checkWinner();
@@ -46,7 +36,7 @@ function oneRound(
   }
 }
 
-const buttons = document.querySelector('#buttons');
+const buttons = document.querySelector("#buttons");
 const rock = document.querySelector("#rockButton");
 const paper = document.querySelector("#paperButton");
 const scissors = document.querySelector("#scissors");
@@ -71,16 +61,12 @@ function checkWinner() {
     score.textContent = `${playerScore} : ${computerScore}`;
   } else if ((playerScore = 5)) {
     score.textContent = `You reach 5 points, so you win!`;
+    buttonsRemove();
     showRestart();
-    rock.remove();
-    paper.remove();
-    scissors.remove();
   } else {
     score.textContent = `Computer reach 5 points, so you lose`;
     showRestart();
-    rock.remove();
-    paper.remove();
-    scissors.remove();
+    buttonsRemove();
   }
 }
 
@@ -97,9 +83,14 @@ function restartGame() {
   buttons.appendChild(rock);
   buttons.appendChild(paper);
   buttons.appendChild(scissors);
-  
 }
 
 function showRestart() {
   container.appendChild(restart);
+}
+
+function buttonsRemove() {
+  rock.remove();
+  paper.remove();
+  scissors.remove();
 }
