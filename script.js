@@ -46,6 +46,7 @@ function oneRound(
   }
 }
 
+const buttons = document.querySelector('#buttons');
 const rock = document.querySelector("#rockButton");
 const paper = document.querySelector("#paperButton");
 const scissors = document.querySelector("#scissors");
@@ -71,9 +72,15 @@ function checkWinner() {
   } else if ((playerScore = 5)) {
     score.textContent = `You reach 5 points, so you win!`;
     showRestart();
+    rock.remove();
+    paper.remove();
+    scissors.remove();
   } else {
     score.textContent = `Computer reach 5 points, so you lose`;
     showRestart();
+    rock.remove();
+    paper.remove();
+    scissors.remove();
   }
 }
 
@@ -85,7 +92,12 @@ function restartGame() {
   playerScore = 0;
   computerScore = 0;
   score.textContent = `${playerScore} : ${computerScore}`;
+  display.textContent = "";
   restart.remove();
+  buttons.appendChild(rock);
+  buttons.appendChild(paper);
+  buttons.appendChild(scissors);
+  
 }
 
 function showRestart() {
