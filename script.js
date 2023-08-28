@@ -71,7 +71,7 @@ function checkWinner() {
 }
 
 const restart = document.createElement("button");
-restart.textContent = "Restart!";
+restart.innerHTML = "<img src=pics/restart.png>";
 restart.addEventListener("click", restartGame);
 
 function restartGame() {
@@ -91,6 +91,6 @@ function showRestart() {
 
 function buttonsRemove() {
   rock.remove();
-  paper.remove();
+  paper.remove(); 
   scissors.remove();
 }
