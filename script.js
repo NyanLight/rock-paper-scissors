@@ -7,29 +7,36 @@ let computerScore = 0;
 
 function oneRound(playerChoice, computerChoice = getComputerChoice()) {
   if (computerChoice === playerChoice) {
+    displayComputerChoice(computerChoice); 
     display.textContent = "It's tie round";
     checkWinner();
   } else if (computerChoice === "paper" && playerChoice === "rock") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Paper beats a rock, you lose the round!";
     ++computerScore;
     checkWinner();
   } else if (computerChoice === "rock" && playerChoice === "paper") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Paper beats a rock, you win the round!";
     ++playerScore;
     checkWinner();
   } else if (computerChoice === "paper" && playerChoice === "scissors") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Scissors beat a paper, you win!";
     ++playerScore;
     checkWinner();
   } else if (computerChoice === "rock" && playerChoice === "scissors") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Rock beats scissors, you lose!";
     ++computerScore;
     checkWinner();
   } else if (computerChoice === "scissors" && playerChoice === "paper") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Scissors beat the paper, you lose";
     ++computerScore;
     checkWinner();
   } else if (computerChoice === "scissors" && playerChoice === "rock") {
+    displayComputerChoice(computerChoice); 
     display.textContent = "Rock beats scissors, you win!";
     ++playerScore;
     checkWinner();
@@ -43,6 +50,7 @@ const scissors = document.querySelector("#scissors");
 const display = document.querySelector("#display");
 const score = document.querySelector("#score");
 const container = document.querySelector("#container");
+const computerChoiceDisplay = document.querySelector('#computer_choice_display');
 
 score.textContent = `${playerScore} : ${computerScore}`;
 
@@ -70,6 +78,10 @@ function checkWinner() {
   }
 }
 
+function displayComputerChoice(computerChoice) {
+  computerChoiceDisplay.textContent = `Computer choice is ${computerChoice}`;
+}
+
 const restart = document.createElement("button");
 restart.innerHTML = "<img src=pics/restart.png>";
 restart.addEventListener("click", restartGame);
@@ -77,6 +89,7 @@ restart.addEventListener("click", restartGame);
 function restartGame() {
   playerScore = 0;
   computerScore = 0;
+  computerChoiceDisplay.textContent = "";
   score.textContent = `${playerScore} : ${computerScore}`;
   display.textContent = "";
   restart.remove();
@@ -86,7 +99,7 @@ function restartGame() {
 }
 
 function showRestart() {
-  container.appendChild(restart);
+  container.insertBefore(restart, computerChoiceDisplay);
 }
 
 function buttonsRemove() {
