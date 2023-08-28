@@ -1,17 +1,45 @@
+body {
+    background-color: #f7f4eb;
+    font-family: 'Noto Sans Chorasmian', sans-serif;
+    
+}
+
+
+#display {
+    text-align: center;
+}
+
 #container {
     height: 800px;
     width: 66%;
     margin:auto;
-    border: black solid 2px;
+    border: black dashed 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 
 #buttons {
     display: flex;
     justify-content: center;
+}
+
+.icons {
+    height: 50px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    gap: 1rem;
+}
+
+#github {
+    height: 3rem;
 }
